@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Live link
 
-[live link](https://oxford-g.github.io/Restaurant-page/dist/index)
+[live link]()
 
 ## Author
 
