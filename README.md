@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Live link
 
-[live link]()
+[live link](https://oxy-calculator.herokuapp.com/)
 
 ## Author
 
