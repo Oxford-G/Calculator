@@ -19,3 +19,16 @@ class App extends React.Component {
     const { total, next, operation } = calculate(this.state, buttonName);
     this.setState({ total, next, operation });
   }
+
+
+  render() {
+    const { total, next, operation } = this.state;
+    const output = operation === '=' ? total : `${total} ${operation} ${next}`;
+    return (
+      <>
+        <Display result={output} />
+        <ButtonPanel clickHandler={this.handleClick} />
+      </>
+    );
+  }
+}
