@@ -3,39 +3,34 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 const ButtonPanel = ({ clickHandler }) => {
-  const renderButton = (i) => <Button name={i} handleClick={clickHandler} />;
+  const handleClick = (buttonName) => clickHandler(buttonName);
+
+  const createButtons = (names) => {
+    const items = [];
+    for (let i = 0; i < names.length; i += 1) {
+      items.push(<Button name={names[i]} key={i} clickHandler={handleClick} />);
+    }
+    return items;
+  };
+
   return (
-    <div>
-      <div>
-        {renderButton('AC')}
-        {renderButton('+/-')}
-        {renderButton('%')}
-        {renderButton('÷')}
+    <>
+      <div className="group-1">
+        {createButtons(['AC', '+/-', '%', '/'])}
       </div>
-      <div>
-        {renderButton('7')}
-        {renderButton('8')}
-        {renderButton('9')}
-        {renderButton('x')}
+      <div className="group-2">
+        {createButtons(['7', '8', '9', '*'])}
       </div>
-      <div>
-        {renderButton('4')}
-        {renderButton('5')}
-        {renderButton('6')}
-        {renderButton('-')}
+      <div className="group-3">
+        {createButtons(['4', '5', '6', '-'])}
       </div>
-      <div>
-        {renderButton('1')}
-        {renderButton('2')}
-        {renderButton('3')}
-        {renderButton('+')}
+      <div className="group-4">
+        {createButtons(['1', '2', '3', '+'])}
       </div>
-      <div>
-        {renderButton('0')}
-        {renderButton('.')}
-        {renderButton('=')}
+      <div className="group-5">
+        {createButtons(['0', '.', '='])}
       </div>
-    </div>
+    </>
   );
 };
 
