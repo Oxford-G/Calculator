@@ -1,36 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../App.css';
 import Button from './Button';
 
 const ButtonPanel = ({ clickHandler }) => {
-  const handleClick = (buttonName) => clickHandler(buttonName);
-
-  const createButtons = (names) => {
-    const items = [];
-    for (let i = 0; i < names.length; i += 1) {
-      items.push(<Button name={names[i]} key={i} clickHandler={handleClick} />);
-    }
-    return items;
-  };
-
+  const renderButton = ({ name, color = 'primary', wide = false }) => <Button name={name} handleClick={clickHandler} color={color} wide={wide} />;
   return (
-    <>
-      <div className="group-1">
-        {createButtons(['AC', '+/-', '%', '/'])}
+    <div className="btn-panel" data-testid="button-panel">
+      <div className="inner-panel">
+        {renderButton({ name: 'AC' })}
+        {renderButton({ name: '+/-' })}
+        {renderButton({ name: '%' })}
+        {renderButton({ name: '÷', color: 'secondary' })}
       </div>
-      <div className="group-2">
-        {createButtons(['7', '8', '9', '*'])}
+      <div className="inner-panel">
+        {renderButton({ name: '7' })}
+        {renderButton({ name: '8' })}
+        {renderButton({ name: '9' })}
+        {renderButton({ name: 'x', color: 'secondary' })}
       </div>
-      <div className="group-3">
-        {createButtons(['4', '5', '6', '-'])}
+      <div className="inner-panel">
+        {renderButton({ name: '4' })}
+        {renderButton({ name: '5' })}
+        {renderButton({ name: '6' })}
+        {renderButton({ name: '-', color: 'secondary' })}
       </div>
-      <div className="group-4">
-        {createButtons(['1', '2', '3', '+'])}
+      <div className="inner-panel">
+        {renderButton({ name: '1' })}
+        {renderButton({ name: '2' })}
+        {renderButton({ name: '3' })}
+        {renderButton({ name: '+', color: 'secondary' })}
       </div>
-      <div className="group-5">
-        {createButtons(['0', '.', '='])}
+      <div className="inner-panel">
+        {renderButton({ name: '0', wide: true })}
+        {renderButton({ name: '.' })}
+        {renderButton({ name: '=', color: 'secondary' })}
       </div>
-    </>
+    </div>
   );
 };
 
